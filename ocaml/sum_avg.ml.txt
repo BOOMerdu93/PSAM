@@ -1,0 +1,175 @@
+open Csv (* import functions from libcsv.ml *)
+open Unix (* import functions from libunix.ml *)
+
+(* load_java_classes: unit -> unit
+   Loads the Java classes `Farm`, `Field`, `SingleHarvest`, and `MultipleHarvest`
+   using the JNI. This function should be called before calling any other
+   functions that access or modify these Java objects. *)
+let load_java_classes () =
+  (* code to load the Java classes using the JNI goes here *)
+  ()
+
+(* create_farm: string -> Farm
+   Creates a new `Farm` object with the given name. *)
+let create_farm (name : string) : Farm =
+  (* code to create a new `Farm` object using the JNI goes here *)
+  (* placeholder return value *)
+  { name = ""; fields = [] }
+
+(* create_field: string -> int -> Field
+   Creates a new `Field` object with the given name and area. *)
+let create_field (name : string) (area : int) : Field =
+  (* code to create a new `Field` object using the JNI goes here *)
+  (* placeholder return value *)
+  { name = ""; area = 0; singleHrv = []; multipleHrv = [] }
+
+(* create_single_harvest: string -> int -> int -> SingleHarvest
+   Creates a new `SingleHarvest` object with the given name, quantity planted,
+   and quantity harvested. *)
+let create_single_harvest (name : string) (qty_planted : int) (qty_harvested : int) : SingleHarvest =
+  (* code to create a new `SingleHarvest` object using the JNI goes here *)
+  (* placeholder return value *)
+  { name = ""; quantityPlanted = 0; quantityHarvested = 0; seedStock = 0; price = 0 }
+
+(* create_multiple_harvest: string -> int -> int -> int -> MultipleHarvest
+   Creates a new `MultipleHarvest` object with the given name, quantity planted,
+   quantity harvested, and price. *)
+let create_multiple_harvest (name : string) (qty_planted : int) (qty_harvested : int) (price : int) : MultipleHarvest =
+  (* code to create a new `MultipleHarvest` object using the JNI goes here *)
+  (* placeholder return value *)
+  { name = ""; quantityPlanted = 0; quantityHarvested = 0; price = 0 }
+
+(* add_field: Farm -> Field -> unit
+   Adds the given `Field` object to the `Farm` object. *)
+let add_field (farm : Farm) (field : Field) : unit =
+  (* code to add the `Field` object to the `Farm` object using the JNI goes here *)
+  ()
+
+(* add_single_harvest: Field -> SingleHarvest -> unit
+   Adds the given `SingleHarvest` object to the `Field` object. *)
+let add_single_harvest (field : Field) (harvest : SingleHarvest) : unit =
+  (* code to add the `SingleHarvest` object to the `Field` object using the JNI goes here *)
+  ()
+
+(* add_multiple_harvest: Field -> MultipleHarvest -> unit
+   Adds the given `MultipleHarvest` object to the `Field` object. *)
+let add_multiple_harvest (field : Field) (harvest : MultipleHarvest) : unit =
+  (* code to add the `MultipleHarvest` object to the `Field` object using the JNI goes here *)
+  ()
+
+(* delete_field: Farm -> Field -> unit
+   Removes the given `Field` object from the `Farm` object. *)
+let delete_field (farm : Farm) (field : Field) : unit =
+  (* code to remove the `Field` object from the `Farm` object using the JNI goes here *)
+  ()
+
+(* delete_multiple_harvest: Field -> MultipleHarvest -> unit
+   Removes the given `MultipleHarvest` object from the `Field` object. *)
+let delete_multiple_harvest (field : Field) (harvest : MultipleHarvest) : unit =
+  (* code to remove the `MultipleHarvest` object from the `Field` object using the JNI goes here *)
+  ()
+
+(* read_csv: string -> Farm
+   Reads the data from the given CSV file and creates a `Farm` object with the
+   data. The CSV file should contain data in the following format:
+   name,area,single-harvest-name,single-harvest-qty-planted,single-harvest-qty-harvested,
+   single-harvest-price,multiple-harvest-name,multiple-harvest-qty-planted,
+   multiple-harvest-qty-harvested,multiple-harvest-price
+   For example:
+   "Field 1",100,"Tomatoes",50,40,2,"Carrots",100,80,1
+   "Field 2",200,"Potatoes",100,80,3,"Peas",50,40,2
+   Each line represents a single `Field` object, with the corresponding `SingleHarvest` and
+   `MultipleHarvest` objects nested within it. If a line does not contain data for a `SingleHarvest` or
+   `MultipleHarvest`, the values should be left empty (e.g., ",,,," or ",,,,,,"). *)
+let read_csv (filename : string) : Farm =
+  (* code to read the CSV file and create a `Farm` object using the JNI goes here *)
+  (* placeholder return value *)
+  { name = ""; fields = [] }
+
+(* save_csv: Farm -> string -> unit
+   Saves the data from the given `Farm` object to the given CSV file. The data
+   will be saved in the following format:
+   name,area,single-harvest-name,single-harvest-qty-planted,single-harvest-qty-harvested,
+   single-harvest-price,multiple-harvest-name,multiple-harvest-qty-planted,
+   multiple-harvest-qty-harvested,multiple-harvest-price
+   For example:
+   "Field 1",100,"Tomatoes",50,40,2,"Carrots",100,80,1
+   "Field 2",200,"Potatoes",100,80,3,"Peas",50,40,2
+   Each line represents a single `Field` object
+(* delete_single_harvest: Field -> SingleHarvest -> unit
+   Removes the given `SingleHarvest` object from the `Field` object. *)
+let delete_single_harvest (field : Field) (harvest : SingleHarvest) : unit =
+  (* code to remove the `SingleHarvest` object from the `Field` object using the JNI goes here *)
+  ()
+
+(* delete_field: Farm -> Field -> unit
+   Removes the given `Field` object from the `Farm` object. *)
+let delete_field (farm : Farm) (field : Field) : unit =
+  (* code to remove the `Field` object from the `Farm` object using the JNI goes here *)
+  ()
+
+(* delete_farm: Farm -> unit
+   Removes the given `Farm` object and all associated `Field`, `SingleHarvest`, and
+   `MultipleHarvest` objects. *)
+let delete_farm (farm : Farm) : unit =
+  (* code to remove the `Farm` object and all associated objects using the JNI goes here *)
+  ()
+
+(* update_multiple_harvest: MultipleHarvest -> int -> int -> int -> unit
+   Modifies the given `MultipleHarvest` object with the new values for quantity planted,
+   quantity harvested, and price. *)
+let update_multiple_harvest (harvest : MultipleHarvest) (qty_planted : int) (qty_harvested : int) (price : int) : unit =
+  (* code to update the `MultipleHarvest` object using the JNI goes here *)
+  ()
+
+(* update_single_harvest: SingleHarvest -> int -> int -> int -> unit
+   Modifies the given `SingleHarvest` object with the new values for quantity planted,
+   quantity harvested, and price. *)
+let update_single_harvest (harvest : SingleHarvest) (qty_planted : int) (qty_harvested : int) (price : int) : unit =
+  (* code to update the `SingleHarvest` object using the JNI goes here *)
+  ()
+
+(* update_field: Field -> string -> int -> unit
+   Modifies the given `Field` object with the new values for name and area. *)
+let update_field (field : Field) (name : string) (area : int) : unit =
+  (* code to update the `Field` object using the JNI goes here *)
+  ()
+
+(* update_farm: Farm -> string -> unit
+   Modifies the given `Farm` object with the new value for name. *)
+let update_farm (farm : Farm) (name : string) : unit =
+  (* code to update the `Farm` object using the JNI goes here *)
+
+(* read_csv: string -> Farm
+   Reads a CSV file and returns a `Farm` object representing the data in the file. *)
+let read_csv (filename : string) : Farm =
+  (* code to read the CSV file and create the `Farm`, `Field`, `SingleHarvest`, and
+     `MultipleHarvest` objects using the JNI goes here *)
+  let farm = Farm "" in
+  farm
+
+(* write_csv: Farm -> string -> unit
+   Writes the data from the given `Farm` object to a CSV file. *)
+let write_csv (farm : Farm) (filename : string) : unit =
+  (* code to write the data from the `Farm`, `Field`, `SingleHarvest`, and
+     `MultipleHarvest` objects to a CSV file using the JNI goes here *)
+  ()
+
+(* main: unit -> unit
+   The main function reads the command-line arguments and performs the specified actions. *)
+let main () =
+  let (progname, options, args) = parse_cli.get_args () in
+  match options with
+  | ["-h"] | ["--help"] -> print_usage progname
+  | ["-o"; outfile] -> let farm = read_csv (List.hd args) in
+                       write_csv farm outfile
+  | ["-d"] -> let farm = read_csv (List.hd args) in
+              delete_farm farm
+  | ["-u"] -> let farm = read_csv (List.hd args) in
+              (* code to update a `Farm`, `Field`, `SingleHarvest`, or `MultipleHarvest`
+                 object using the JNI goes here *)
+              ()
+  | _ -> print_usage progname
+
+
+  
